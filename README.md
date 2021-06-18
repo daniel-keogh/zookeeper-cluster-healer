@@ -1,16 +1,16 @@
-# Cluster Healing with Zookeeper
+# Cluster Healing with ZooKeeper
 
 Y4S1 Distributed Systems ZooKeeper Assignment.
 
 ## Introduction
 
-An application which uses Zookeeper to monitor and automatically heal a cluster of workers. The cluster healer will launch the requested number of workers, then monitor the cluster to ensure that the requested number of workers is running. If a worker dies, the cluster healer should launch more workers to keep the total number of workers at the requested number.
+An application which uses [Apache ZooKeeper](https://zookeeper.apache.org/) to monitor and automatically heal a cluster of workers. The cluster healer will launch the requested number of workers, then monitor the cluster to ensure that the requested number of workers is running. If a worker dies, the cluster healer should launch more workers to keep the total number of workers at the requested number.
 
 ## Operation
 
 On startup, the cluster healer:
 
-- Connects to Zookeeper.
+- Connects to ZooKeeper.
 
 - Checks if the `/workers` parent znode exists, and if it doesn't, creates it.
 
@@ -33,7 +33,7 @@ Use the maven `package` goal from the IntelliJ tool window to build an executabl
 
 ### Running
 
-Running the below command from the project directory will start up 3 worker instances using the provided `faulty-worker.jar`, and will monitor the cluster to ensure that 3 instances are always running. **_Ensure that you've started the Zookeeper server first_**.
+Running the below command from the project directory will start up 3 worker instances using the provided `faulty-worker.jar`, and will monitor the cluster to ensure that 3 instances are always running. **_Ensure that you've started the ZooKeeper server first_**.
 
 ```
 java -jar target/cluster-healer-1.0-SNAPSHOT-jar-with-dependencies.jar 3 ../faulty-worker.jar
